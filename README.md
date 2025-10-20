@@ -75,7 +75,9 @@ When you run the program, it will first print an opening message showing the cur
 ![Opening message screenshot](images/opening_message.png)
 
 Then, it will process each file individually, printing messages depending on the file's status.  
-For demonstration, we will use a classic example of two folders containing one file of each type: new, identical-new, identical-old, same content, etc.  
+For demonstration, we will use a classic example of two folders containing one file of each type:  
+new, identical, and files that differ in modification time between source and destination.
+
 
 ![File processing screenshot](images/file_processing.png)
 
