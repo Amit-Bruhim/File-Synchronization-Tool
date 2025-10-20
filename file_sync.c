@@ -31,7 +31,7 @@ char NEW_FILE_STRING[] = "\033[32mNew file found: \033[0m%s";
 char SAME_FILE_STRING[] = "\033[32mFile \033[0m%s\033[32m is identical. Skipping...\033[0m";
 char NEWER_FILE_STRING[] = "\033[32mFile \033[0m%s\033[32m is newer in destination. Skipping...\033[0m";
 char OLDER_FILE_STRING[] = "\033[32mFile \033[0m%s\033[32m is newer in source. Updating...\033[0m";
-char GOODBYE_STRING[] = "\033[32mSynchronization complete.\033[0m";
+char GOODBYE_STRING[] = "\n\033[32mSynchronization complete.\033[0m\n";
 char SYNC_STRING[] = "\033[32mSynchronizing from \033[0m%s\033[32m to \033[0m%s\n";
 char COPIED_STRING[] = "\033[32mCopied:\033[0m %s/%s \033[32m->\033[0m %s/%s";
 
