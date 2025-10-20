@@ -85,21 +85,32 @@ When synchronization completes, a final message will be displayed:
 
 > **Note:** Issues such as missing directories or missing command-line arguments will result in an error message.
 
-For user convenience, the `source_dir` and `dest_dir` folders are already prepared with example files so you can test the synchronization immediately.  
+For user convenience, you can create example folders with prepared files by running the following script:
 
-- `source_dir` contains the original files to be synchronized:  
-  - `dest_newer.txt` – older version compared to destination  
-  - `new_file.txt` – file that exists only in source  
-  - `same_file.txt` – identical file in both folders  
-  - `source_newer.txt` – newer version compared to destination  
+```bash
+#!/bin/bash
 
-- `dest_dir` contains the destination files:  
-  - `dest_newer.txt` – newer version compared to source  
-  - `new_file.txt` – will be created during synchronization  
-  - `same_file.txt` – identical file in both folders  
-  - `source_newer.txt` – older version compared to source  
+mkdir -p source_dir dest_dir
 
-To test the program, run the following command:
+# source files
+echo "new file content" > source_dir/new_file.txt
+echo "identical content" > source_dir/same_file.txt
+echo "in folder: source, new is in src" > source_dir/source_newer.txt
+echo "in folder: source, new is in dest" > source_dir/dest_newer.txt
+
+# dest files
+echo "identical content" > dest_dir/same_file.txt
+echo "in folder: dest, new is in src" > dest_dir/source_newer.txt
+echo "in folder: dest, new is in dest" > dest_dir/dest_newer.txt
+
+# set modification times
+touch -t 202510201310 source_dir/source_newer.txt
+touch -t 202510201307 dest_dir/source_newer.txt
+touch -t 202510201300 source_dir/dest_newer.txt
+touch -t 202510201307 dest_dir/dest_newer.txt
+```
+
+After running this script, you can test the program:
 
 ```bash
 ./file_sync source_dir dest_dir
